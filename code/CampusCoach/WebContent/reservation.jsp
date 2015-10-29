@@ -119,6 +119,7 @@
 	</div>
 	</s:iterator>
 	
+
 	<%if(request.getParameter("error")!=null){%>
 	<div class="positionfix alert alert-info" id=“info" role="alert">您已经接受过此预约</div>
 	<%} %>

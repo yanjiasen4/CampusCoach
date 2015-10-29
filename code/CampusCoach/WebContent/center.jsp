@@ -167,7 +167,10 @@
             			 	<th>运动</th>
             				<th>教练</th>
             				<th>时间</th>
+
+
             				<th>管理</th>
+
           				</tr>
        					</thead>
         				<tbody>
@@ -176,6 +179,7 @@
 				            		<td><s:property value="#it.sportsName"/></td>
 				            		<td><s:property value="#it.coachName"/></td>
 				            		<td><s:property value="#it.time"/></td>
+
 				            		<td><button type="button" class="btn btn-default" value="<s:property value="#it.courseID"/>" onclick="drop(this)">退课</button></td>
 				          		</tr>
 				            </s:iterator>
@@ -185,6 +189,7 @@
 		</div>
 	</div>
 	
+
 	<%if(request.getParameter("error")!=null){%>
 	<div class="positionfix alert alert-info" id=“info" role="alert">操作失败，当前课程无法退课</div>
 	<%} %>
@@ -192,6 +197,7 @@
 	<div class="positionfix alert alert-success" id="suc" role="alert">退课成功！</div>
 	<%} %>
 	
+
 	<nav class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
         <div class="navbar-header">
@@ -228,6 +234,7 @@
 	$(function () {
 		$('[data-toggle="tooltip"]').tooltip()
 	})
+
 	
 	function drop(name) {
 		window.location.href = "dropcourse?courseID="+name.value;
