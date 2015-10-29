@@ -9,7 +9,6 @@
 	<include file="struts-default.xml" />
 	
 	<package name="wechat" extends="struts-default">
-		
 		<interceptors>  
             <interceptor name="authority" class="com.interceptor.LoginCheckInterceptor">  
             </interceptor>  
@@ -60,13 +59,10 @@
 		</action>
 		<action name="signup" class="signUpAction">
 			<result name="input">/</result>
-<<<<<<< HEAD
 			<result name="success" type="redirect">info/success.html</result>
 			<result name="error" type="redirect">info/signupfailed.html</result>
-=======
 			<result name="success">/jump/jumpindex.jsp?success=1</result>
 			<result name="error">/jump/jumpindex.jsp?error=1</result>
->>>>>>> gitlab/master
 			<result name="info" type="redirect">info/failed.html</result>
 			<interceptor-ref name="logincheck" /> 
 		</action>
@@ -110,13 +106,10 @@
 		</action>
 		<action name="receive" class="receiveAction">
 			<result name="input">/</result>
-<<<<<<< HEAD
 			<result name="success" type="redirect">info/success.html</result>
 			<result name="error" type="redirect">info/receivefailed.html</result>
-=======
 			<result name="success">jump/jumpreservation.jsp?success=1</result>
 			<result name="error">jump/jumpreservation.jsp?error=1</result>
->>>>>>> gitlab/master
 			<interceptor-ref name="coachcheck"/> 
 		</action>
 		<action name="showuserreservation" class="showUserReservationAction">
@@ -131,14 +124,12 @@
 			<result name="error">info/failed.html</result>
 			<interceptor-ref name="coachcheck"/>
 		</action>	
-<<<<<<< HEAD
-=======
+
 		<action name="dropcourse" class="dropCourseAction">
 			<result name="input">/</result>
 			<result name="success">/jump/jumpcenter.jsp?success=1</result>
 			<result name="error">/jump/jumpcenter.jsp?error=1</result>
 		</action>
->>>>>>> gitlab/master
 		<action name="uploadavatar" class="uploadAvatarAction">
 			<result name="input">user-setting.jsp?success=1</result>
 			<result name="success" type="redirect">user-setting.jsp</result>

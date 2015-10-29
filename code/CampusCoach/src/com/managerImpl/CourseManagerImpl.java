@@ -1,19 +1,9 @@
 package com.managerImpl;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
-
-
-
-
-
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> gitlab/master
 import com.Message.Message;
 import com.dao.CoachDAO;
 import com.dao.CourseDAO;
@@ -93,10 +83,7 @@ public class CourseManagerImpl implements CourseManager{
 	}
 
 	public Boolean deleteCourse(int courseID) {
-<<<<<<< HEAD
 		// TODO Auto-generated method stub
-=======
->>>>>>> gitlab/master
 		return null;
 	}
 
@@ -235,8 +222,6 @@ public class CourseManagerImpl implements CourseManager{
 		}
 	}
 
-<<<<<<< HEAD
-=======
 	public Boolean deleteCourseSignup(int learnerID, int courseID) {
 		if(courseSignUpDao.deleteCourseSignUp(courseID, learnerID)){
 			return true;
@@ -246,6 +231,5 @@ public class CourseManagerImpl implements CourseManager{
 		}
 	}
 
->>>>>>> gitlab/master
 
 }

@@ -82,18 +82,10 @@ public class ShowCoursesAction extends ActionSupport {
 		}
 		ActionContext actionContext = ActionContext.getContext();
         Map<String,Object> session = actionContext.getSession();
-<<<<<<< HEAD
-        System.out.println(session.get("first_login"));
-=======
->>>>>>> gitlab/master
         if(session.containsKey("first_login")) {
      
         	int login = (Integer) session.get("first_login");
         	if(login==1) {
-<<<<<<< HEAD
-        		System.out.println("!");
-=======
->>>>>>> gitlab/master
         		session.remove("first_login");
         		return "flogin";
         	}
