@@ -55,11 +55,14 @@ public class SignUpAction extends ActionSupport {
         Map<String,Object> session = actionContext.getSession();
         int learnerID = (Integer) session.get("id");
 		//learnerManager.signUpCheck(learnerID);
-        if(session.get("info")==null){
-        	return "INFO";
-        }
-        if(courseManager.signUpCourse(learnerID, courseID)){
+        //if(session.get("info")==null){
+        //	return "INFO";
+        //}
+        if(courseManager.signUpCourse(learnerID, courseID) == 1){
         	return SUCCESS;
+        }
+        if(courseManager.signUpCourse(learnerID, courseID) == 2){
+        	return "FULL";
         }
         else {
         	return ERROR;
@@ -72,7 +75,7 @@ public class SignUpAction extends ActionSupport {
 		response.setContentType("text/html;charset=utf-8");
 		String learnerID = request.getParameter("userID");
 		String result = null;
-		if(courseManager.signUpCourse(Integer.parseInt(learnerID),courseID)){
+		if(courseManager.signUpCourse(Integer.parseInt(learnerID),courseID)==1){
 			result = "1";
 		}
 		else{

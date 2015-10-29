@@ -26,6 +26,6 @@ public interface CourseManager {
 	public List<CourseSignUpForm> getSignUpList(int courseID);
 	public Boolean insertCourse(Course course);
 	public List<Course> getUserHistoryCourses(int learnerID);
-	public Boolean signUpCourse(int learnerID, int courseID);
+	public int signUpCourse(int learnerID, int courseID);
 	public String getCurrentID();
 }

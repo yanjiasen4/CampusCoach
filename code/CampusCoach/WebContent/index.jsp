@@ -57,7 +57,7 @@
     </div>
 	
 	<div class="header">
-	  <h2>开始选择你需要的教练/培训班吧！</h2>
+	  <h2>开始选择你需要的培训班吧！</h2>
 	</div>
 	
 	<div class="container content">
@@ -158,12 +158,25 @@
 	</div>
 	</s:iterator>
 	
-	<div class="positionfix alert alert-danger" id="alert" role="alert" style="display:none">请前往个人中心完善信息！</div>
+	<div class="positionfix alert alert-danger" id="alert" role="alert" style="display:none">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  			<span aria-hidden="true">x</span>
+		</button>
+		请前往个人中心完善信息！
+	</div>
 	<%if(request.getParameter("login")!=null){%>
-	<div class="positionfix alert alert-success" id="login" role="alert">登录成功！</div>
+	<div class="positionfix alert alert-success" id="login" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  			<span aria-hidden="true">x</span>
+		</button>
+		登录成功！
+	</div>
 	<%} %>
 	<%if(request.getParameter("error")!=null){%>
 	<div class="positionfix alert alert-info" id=“info" role="alert">您已经报名过该课程</div>
+	<%} %>
+	<%if(request.getParameter("full")!=null){%>
+	<div class="positionfix alert alert-info" id="full" role="alert">该课程报名人数已满！</div>
 	<%} %>
 	<%if(request.getParameter("success")!=null){%>
 	<div class="positionfix alert alert-success" id="suc" role="alert">报名成功！</div>
@@ -252,8 +265,9 @@
 	function order(name) {
 		<%if(request.getSession().getAttribute("info")==null){%>
 			t = document.getElementById("alert");
-			
 			t.style.display = "block";
+			lt = document.getElementById("login");
+			lt.style.display = "none";
 		<%} else {%>
 		window.location.href = "signup?courseID="+name.value;
 		<%}%>
