@@ -18,6 +18,10 @@ public interface CourseManager {
 			String time, String place, String introduction, int stateFlag);
 	public Boolean deleteCourse(int courseID);
 	public Boolean updateCourse(Course course);
+<<<<<<< HEAD
+=======
+	public Boolean deleteCourseSignup(int learnerID, int courseID);
+>>>>>>> gitlab/master
 	
 	//------------------------------------------------------------------------
 	public List<Course> getAllNowCourses();
