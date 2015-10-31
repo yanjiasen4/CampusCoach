@@ -33,14 +33,19 @@
 		<div class="container">
 			<ul class="nav nav-pills">
             	
-			    <li role="presentation"><a href="login.jsp">登录</a></li>
-			    
-			    <li role="presentation"><a class="nav-brand" href="showusercourses.action" style="padding:0px"><img width="50px" alt="校园教练" src=""></a></li>
-			    <li role="presentation" class="active"><a href="showusercourses"></a></li>
+			    <% if(request.getSession().getAttribute("user") == null) {
+            	%>
+			    <li role="presentation" class="active"><a href="login.jsp">登录</a></li>
+			    <li role="presentation"><a href="register.jsp">注册</a></li>
+			    <%  
+			    } 
+            	else {
+			    %>
+			    <li role="presentation"><a class="nav-brand" href="showusercourses.action" style="padding:0px"><img width="50px" alt="校园教练" src="${sessionScope.avatar}"></a></li>
+			    <li role="presentation"><a href="showusercourses.action">${sessionScope.user}</a></li>
 			    <li role="presentation"><a href="logout.action">注销</a></li>
-			  
-				<li role="presentation"><a href="register.jsp">注册</a></li>
-				</ul>
+			    <%  } %>
+			</ul>
 		</div>
 	</nav>
 	

@@ -36,6 +36,7 @@
             	<% if(request.getSession().getAttribute("user") == null) {
             	%>
 			    <li role="presentation"><a href="login.jsp">登录</a></li>
+			    <li role="presentation"><a href="register.jsp">注册</a></li>
 			    <%  
 			    } 
             	else {
@@ -44,7 +45,6 @@
 			    <li role="presentation"><a href="showusercourses">${sessionScope.user}</a></li>
 			    <li role="presentation"><a href="logout.action">注销</a></li>
 			    <%  } %>
-				<li role="presentation"><a href="register.jsp">注册</a></li>
 				</ul>
 		</div>
 	</nav>
@@ -102,13 +102,14 @@
 			</s:iterator>
 			
 			<div class="col-sm-12 col-md-12 col-lg-12" id="conment">
+			
 				<div id="disqus_thread" class="disqus_div"></div>
 				<script type="text/javascript">
     		/* * * CONFIGURATION VARIABLES * * */
    			var disqus_shortname = 'campuscoach';
    			var disqus_identifier = '<s:property value='#course.id'/>';
    				
-    
+    		
     		/* * * DON'T EDIT BELOW THIS LINE * * */
     		(function() {
         		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

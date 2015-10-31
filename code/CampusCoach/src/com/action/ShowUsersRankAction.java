@@ -18,7 +18,8 @@ public class ShowUsersRankAction extends ActionSupport{
 	private List<Learner> learners;
 	private LearnerManager learnerManager;
 	private int pageSize;
-
+	private int page;
+	
 	public List<Learner> getLearners() {
 		return learners;
 	}
@@ -36,7 +37,7 @@ public class ShowUsersRankAction extends ActionSupport{
 	}
 	
 	public String execute() {
-		learners = learnerManager.getAllLearners();
+		learners = learnerManager.getRankPage(pageSize, page);
 		return SUCCESS;
 	}
 	
@@ -45,16 +46,13 @@ public class ShowUsersRankAction extends ActionSupport{
 		ActionContext actionContext = ActionContext.getContext();
         Map<String,Object> session = actionContext.getSession();
         String username = (String) session.get("user");
-        int rank = 1;
         for(Learner tmp:learners) {
         	if(tmp.getUsername().equals(username)) {
         		break;
         	} else {
-        		rank++;
         	}
         }
-        Learner learner = learnerManager.getLearnerByUsername(username);
-        
+        learnerManager.getLearnerByUsername(username);
 		return SUCCESS;
 	}
 
@@ -64,6 +62,14 @@ public class ShowUsersRankAction extends ActionSupport{
 
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
 	}
 
 }
