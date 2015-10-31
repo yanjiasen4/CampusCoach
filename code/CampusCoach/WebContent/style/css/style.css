@@ -330,17 +330,33 @@ div .disqus_div {
   text-align: right;
 }
 
-.rank-list-left h2 span {
+.rank-list-left h2 .rank {
+  margin-right:50px;
   text-align:left;
 }
 
-.rank-list-right h2 span {
-  text-align:right;
+span .rank {
+  margin-right:50px;
+}
+
+.rank-list-left h2 span ct{
+  text-align:center;
+}
+
+.rank-list-right h2 span .rank {
+  text-align: right;
+}
+
+.rank-list-right h2 span ct{
+  text-align:center;
 }
 
 @keyframes leftIn {
   0% {
     transform: translateX(-60%);
+  }
+  75% {
+    transform: translateX(10%);
   }
   100% {
     transform: translateX(0%);
@@ -350,6 +366,9 @@ div .disqus_div {
 @keyframes rightIn {
   0% {
     transform: translateX(60%);
+  }
+  75% {
+    transform: translateX(-10%);
   }
   100% {
     transform: translateX(0%);
