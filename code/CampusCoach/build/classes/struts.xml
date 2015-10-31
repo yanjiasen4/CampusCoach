@@ -62,6 +62,7 @@
 			<result name="success" type="redirect">info/success.html</result>
 			<result name="error" type="redirect">info/signupfailed.html</result>
 			<result name="success">/jump/jumpindex.jsp?success=1</result>
+			<result name="full">/jump/jumpindex.jsp?full=1</result>
 			<result name="error">/jump/jumpindex.jsp?error=1</result>
 			<result name="info" type="redirect">info/failed.html</result>
 			<interceptor-ref name="logincheck" /> 

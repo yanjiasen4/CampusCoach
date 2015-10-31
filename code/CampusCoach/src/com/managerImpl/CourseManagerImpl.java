@@ -150,34 +150,33 @@ public class CourseManagerImpl implements CourseManager{
 		this.coachDao = coachDao;
 	}
 
-	public Boolean signUpCourse(int learnerID, int courseID) {
+	public int signUpCourse(int learnerID, int courseID) {
 		if(courseSignUpDao.hasSignedUp(courseID, learnerID)){
-			return false;
+			return 0;
 		}
 		CourseSignUp courseSignUp = new CourseSignUp();
 		courseSignUp.setLearnerID(learnerID);
 		courseSignUp.setCourseID(courseID);
-		
-		
+		Course cs = courseDao.getCourseByCourseID(courseID);
+		if (cs.getEnrollNum() == cs.getMaxNum())//报名人数已经满了，返回2
+			return 2;
 		if(courseSignUpDao.insertCourseSignUp(courseSignUp)){
 			//发短信通知
-			Course cs = courseDao.getCourseByCourseID(courseID);
-			System.out.println(courseID);
-			System.out.println(cs);
+			cs.setEnrollNum(cs.getEnrollNum()+1);
 			String chName = cs.getCoachName();
-			String text = "【校园教练平台】亲爱的教练"+chName+"，有人报名了您的训练班，快登陆校园教练看看吧！";
-			String phone = cs.getPhoneNumber();
-			if (phone == null)
+			//String text = "【校园教练平台】亲爱的教练"+chName+"，有人报名了您的训练班，快登陆校园教练看看吧！";
+			//String phone = cs.getPhoneNumber();
+			/*if (phone == null)
 				return true;
 			try {
 				Message.sendSms(text, phone);
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
-			return true;
+			}*/
+			return 1;
 		}
 		else {
-			return false;
+			return 0;
 		}
 	}
 

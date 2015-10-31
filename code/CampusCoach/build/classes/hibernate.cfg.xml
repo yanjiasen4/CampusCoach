@@ -35,9 +35,12 @@
 		<!-- 
 		<property name="connection.username">xwlmwx1m1j</property>
 		<property name="connection.password">0j1424iix2z2023l31x513i254xhllk5w33x1w5w</property>  --> 
-  
+  		<!--  
 		<property name="connection.username">yanjiasen4</property>
 		<property name="connection.password">asdffdsa</property>
+		-->
+		<property name="connection.username">root</property>
+		<property name="connection.password"></property>
 
 		<!-- JDBC connection pool (use the built-in) -->
 		<!-- <property name="connection.pool_size">1</property>-->
