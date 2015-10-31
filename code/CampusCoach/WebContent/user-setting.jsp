@@ -16,13 +16,6 @@
 
     <!-- Custom styles -->
     <link href="style/css/style.css" rel="stylesheet">
-<<<<<<< HEAD
-    <link href="style/css/normalize.css" rel="stylesheet">
-    <link href="style/css/default.css" rel="stylesheet">
-=======
-  <!--<link href="style/css/normalize.css" rel="stylesheet">
-    <link href="style/css/default.css" rel="stylesheet">-->  
->>>>>>> gitlab/master
     <link href="style/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />	
 	
 	<script src="style/js/jquery-2.1.1.min.js"></script>

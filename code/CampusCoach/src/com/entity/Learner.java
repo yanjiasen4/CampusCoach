@@ -7,6 +7,7 @@ public class Learner {
 	private int isCoach;
 	private String avatar;
 	private String phoneNumber;
+	private int score;
 	
 	public String getPhoneNumber() {
 		return phoneNumber;
@@ -51,6 +52,12 @@ public class Learner {
 	}
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
+	}
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
 	}
 
 }

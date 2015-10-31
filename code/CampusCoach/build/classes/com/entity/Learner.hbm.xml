@@ -15,6 +15,7 @@
 		<property name="avatar" column="avatar"></property>
 		<property name="phoneNumber" column="phoneNumber"></property>
 		<property name="realName" column="realName"></property>
+		<property name="score" column="score"></property>
     </class>
     
 </hibernate-mapping>

@@ -73,7 +73,7 @@
 			</div>
 			
 			<s:iterator value="courses" var="course">
-				<div class="col-sm-12 col-md-6 col-lg-4 " id="<s:property value="#course.sportsName"/>">
+				<div class="col-sm-12 col-md-6 col-lg-4" id="<s:property value="#course.sportsName"/>">
 					<div class="box">
 						<div class="iconpic">
 							<img src="img/1.jpg" width="150px" height="150px">

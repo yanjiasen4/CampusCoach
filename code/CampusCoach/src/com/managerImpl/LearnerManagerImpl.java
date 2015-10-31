@@ -1,5 +1,7 @@
 package com.managerImpl;
 
+import java.util.List;
+
 import com.dao.LearnerDAO;
 import com.entity.Learner;
 import com.manager.LearnerManager;
@@ -100,6 +102,16 @@ public class LearnerManagerImpl implements LearnerManager{
 		else {
 			return false;
 		}
+	}
+
+	public List<Learner> getAllLearners() {
+		return learnerDao.getLearners();
+	}
+
+	public List<Learner> getRankPage(int pageSize, int page) {
+		int offset = page*pageSize;
+		int length = pageSize;
+		return learnerDao.queryLearnerByPage(offset, length);
 	}
 
 }
