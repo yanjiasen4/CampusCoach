@@ -44,7 +44,7 @@
 			    <li role="presentation"><a href="showusercourses.action">${sessionScope.user}</a></li>
 			    <li role="presentation"><a href="logout.action">注销</a></li>
 			    <%  } %>
-				</ul>
+			</ul>
 		</div>
 	</nav>
 	
