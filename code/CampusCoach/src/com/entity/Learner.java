@@ -8,6 +8,7 @@ public class Learner {
 	private String avatar;
 	private String phoneNumber;
 	private int score;
+	private int rank;
 	
 	public String getPhoneNumber() {
 		return phoneNumber;
@@ -58,6 +59,12 @@ public class Learner {
 	}
 	public void setScore(int score) {
 		this.score = score;
+	}
+	public int getRank() {
+		return rank;
+	}
+	public void setRank(int rank) {
+		this.rank = rank;
 	}
 
 }

@@ -180,4 +180,25 @@ public class LearnerDAOImpl extends BaseHibernateImpl implements LearnerDAO{
 		return null;
 	}
 
+	public int getAllRows() {
+		Session session = getSession();
+		Transaction ts = session.beginTransaction();
+		try {
+			String hql = "select count(*) from Learner";
+			Query query = session.createQuery(hql);
+			ts.commit();
+			return ((Long) (query.uniqueResult())).intValue();	
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			if(ts != null){
+				ts.rollback();
+			}	
+		}
+		finally {
+			HibernateSessionFactory.closeSession();
+		}
+		return 0;
+	}
+
 }

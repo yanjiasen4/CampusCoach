@@ -58,7 +58,7 @@
 	</bean>
 	<bean id="showUsersRankAction" class="com.action.ShowUsersRankAction">
 		<property name="learnerManager" ref="learnerManager"></property>
-		<property name="pageSize" value="10"></property>
+		<property name="pageSize" value="2"></property>
 	</bean>
 	<bean id="dropCourseAction" class="com.action.DropCourseAction">
 		<property name="courseManager" ref="courseManager"></property>

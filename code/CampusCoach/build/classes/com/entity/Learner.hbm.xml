@@ -16,6 +16,7 @@
 		<property name="phoneNumber" column="phoneNumber"></property>
 		<property name="realName" column="realName"></property>
 		<property name="score" column="score"></property>
+		<property name="rank" column="rank"></property>
     </class>
     
 </hibernate-mapping>

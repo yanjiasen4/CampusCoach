@@ -63,7 +63,7 @@
       		<s:if test="#st.Odd">
         		<div class="rank-list-left">
           			<h2>
-          			<span class="rank"><s:property value="#st.index"/></span>
+          			<span class="rank"><s:property value="#it.rank"/></span>
 	         		<span class="ct"><s:property value="#it.username"/></span>
 	          		</h2>
         		</div>
@@ -71,12 +71,26 @@
 	        <s:if test="#st.Even">
 	        	<div class="rank-list-right">
 	          		<h2>
-	          		<span class="rank"><s:property value="#st.index"/></span>
+	          		<span class="rank"><s:property value="#it.rank"/></span>
 	         		<span class="ct"><s:property value="#it.username"/></span>
 	          		</h2>
 	        	</div>
 	        </s:if>
        	</s:iterator>
+      
+      	<div class="col-sm-12 col-md-12 col-lg-12"> 
+      	<nav>
+  		<ul class="pager">
+  		<s:if test="%{page.currentPage!=1}">
+    		<li class="previous"><a href="showusersrank?currpage=<s:property value="%{page.currentPage-1}"/>"><span aria-hidden="true">&larr;</span>上一页</a></li>
+    	</s:if>
+    	<s:if test="%{page.currentPage!=(page.allPage-1)}">
+    		<li class="next"><a href="showusersrank?currpage=<s:property value="%{page.currentPage+1}"/>">下一页<span aria-hidden="true">&rarr;</span></a></li>
+    	</s:if>
+  		</ul>
+		</nav>	
+		
+		</div>
       
       </div>
 	</div>

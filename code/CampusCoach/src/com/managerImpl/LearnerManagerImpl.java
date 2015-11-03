@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dao.LearnerDAO;
 import com.entity.Learner;
+import com.entity.Page;
 import com.manager.LearnerManager;
 
 public class LearnerManagerImpl implements LearnerManager{
@@ -108,10 +109,26 @@ public class LearnerManagerImpl implements LearnerManager{
 		return learnerDao.getLearners();
 	}
 
-	public List<Learner> getRankPage(int pageSize, int page) {
+	public Page getRankPage(int pageSize, int page) {
 		int offset = page*pageSize;
 		int length = pageSize;
-		return learnerDao.queryLearnerByPage(offset, length);
+		int allRow = learnerDao.getAllRows();
+		int allPage = Page.countTotalPage(pageSize, allRow);
+		final int currentPage = Page.countCurrentPage(page);
+		List<Learner> list = learnerDao.queryLearnerByPage(offset, length);
+		int i = 0;
+		for(Learner tmp:list) {
+			tmp.setRank(currentPage*pageSize+i);
+			i++;
+		}
+		Page pg = new Page();
+		pg.setPageSize(pageSize);
+		pg.setCurrentPage(currentPage);
+		pg.setAllRow(allRow);
+		pg.setAllPage(allPage);
+		pg.setList(list);
+		pg.init();
+		return pg;	
 	}
 
 }
