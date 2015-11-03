@@ -113,12 +113,15 @@ public class LearnerManagerImpl implements LearnerManager{
 		int offset = page*pageSize;
 		int length = pageSize;
 		int allRow = learnerDao.getAllRows();
+		System.out.println("!");
+		System.out.println(allRow);
 		int allPage = Page.countTotalPage(pageSize, allRow);
+		System.out.println(allPage);
 		final int currentPage = Page.countCurrentPage(page);
 		List<Learner> list = learnerDao.queryLearnerByPage(offset, length);
 		int i = 0;
 		for(Learner tmp:list) {
-			tmp.setRank(currentPage*pageSize+i);
+			tmp.setRank(currentPage*pageSize+i-1);
 			i++;
 		}
 		Page pg = new Page();

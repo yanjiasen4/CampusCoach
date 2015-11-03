@@ -67,7 +67,7 @@ public class ShowCoursesAction extends ActionSupport {
 		this.learnerManager = learnerManager;
 	}
 	
-	public String execute() {
+	public String execute() throws InterruptedException {
 		courses = courseManager.getAllNowCourses();
 		if(courses==null){
 			return SUCCESS;

@@ -81,10 +81,10 @@
       	<div class="col-sm-12 col-md-12 col-lg-12"> 
       	<nav>
   		<ul class="pager">
-  		<s:if test="%{page.currentPage!=1}">
+  		<s:if test="%{page.currentPage!=0}">
     		<li class="previous"><a href="showusersrank?currpage=<s:property value="%{page.currentPage-1}"/>"><span aria-hidden="true">&larr;</span>上一页</a></li>
     	</s:if>
-    	<s:if test="%{page.currentPage!=(page.allPage-1)}">
+    	<s:if test="%{page.currentPage<(page.allPage-1)}">
     		<li class="next"><a href="showusersrank?currpage=<s:property value="%{page.currentPage+1}"/>">下一页<span aria-hidden="true">&rarr;</span></a></li>
     	</s:if>
   		</ul>
