@@ -3,6 +3,7 @@ package com.dao;
 import java.util.List;
 
 import com.entity.Coach;
+import com.entity.Learner;
 
 public interface CoachDAO {
 	public List<Coach> getAllCoaches();
@@ -14,4 +15,5 @@ public interface CoachDAO {
 	public Boolean deleteCoach(int Coach);
 	public Boolean updateCoach(Coach coach);
 	public Coach getCoachByLearnerID(int learnerID);
+	public Boolean setCoach(Coach coach);
 }

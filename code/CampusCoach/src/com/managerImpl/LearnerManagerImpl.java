@@ -1,12 +1,23 @@
 package com.managerImpl;
 
+import com.dao.CoachDAO;
 import com.dao.LearnerDAO;
+import com.entity.Coach;
 import com.entity.Learner;
 import com.manager.LearnerManager;
 
 public class LearnerManagerImpl implements LearnerManager{
 	
 	private LearnerDAO learnerDao;
+	private CoachDAO coachDao;
+
+	public CoachDAO getCoachDao() {
+		return coachDao;
+	}
+
+	public void setCoachDao(CoachDAO coachDao) {
+		this.coachDao = coachDao;
+	}
 
 	public LearnerDAO getLearnerDao() {
 		return learnerDao;
@@ -86,6 +97,11 @@ public class LearnerManagerImpl implements LearnerManager{
 	public void updateAvatar(int learnerID, String fileFileName) {
 		Learner learner = learnerDao.getLearnerByLearnerID(learnerID);
 		learner.setAvatar(fileFileName);
+		if (learner.getIsCoach() == 1){
+			Coach ch = coachDao.getCoachByLearnerID(learner.getLearnerID());
+			ch.setAvatar(fileFileName);
+			coachDao.setCoach(ch);
+		}
 		learnerDao.setLearner(learner);
 	}
 

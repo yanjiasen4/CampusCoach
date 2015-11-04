@@ -16,13 +16,10 @@
 
     <!-- Custom styles -->
     <link href="style/css/style.css" rel="stylesheet">
-<<<<<<< HEAD
     <link href="style/css/normalize.css" rel="stylesheet">
     <link href="style/css/default.css" rel="stylesheet">
-=======
   <!--<link href="style/css/normalize.css" rel="stylesheet">
     <link href="style/css/default.css" rel="stylesheet">-->  
->>>>>>> gitlab/master
     <link href="style/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />	
 	
 	<script src="style/js/jquery-2.1.1.min.js"></script>
@@ -122,8 +119,8 @@
             <form enctype="multipart/form-data" action="uploadavatar" method="post">
                 <input id="file-0a" class="file" type="file" name="file" data-min-file-count="1">
                 <br>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-default">Reset</button>
+                <button type="submit" class="btn btn-primary" name="提交">Submit</button>
+                <button type="reset" class="btn btn-default" name="重置">Reset</button>
             </form>
         </div>   
       	
