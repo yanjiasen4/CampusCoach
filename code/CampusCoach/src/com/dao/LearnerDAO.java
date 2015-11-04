@@ -12,6 +12,7 @@ public interface LearnerDAO {
 	public Boolean deleteLearner(String username);
 	public Boolean setLearner(Learner learner);
 	public Learner getLearnerByLearnerID(int learnerID);
-	
+	public List<Learner> queryLearnerByPage(int offset, int length);
+	public int getAllRows();
 
 }

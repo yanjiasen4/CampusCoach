@@ -24,28 +24,23 @@
 		
 	
 		<!-- Database connection settings -->
-		
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/campuscoach?useUnicode=true&amp;characterEncoding=UTF8</property>
 		
-		 <!--  
-		<property name="connection.url">
-		jdbc:mysql://localhost:3306/campuscoach?useUnicode=true&amp;characterEncoding=UTF8
-		</property>
-		<property name="connection.username">root</property>
-		<property name="connection.password"></property>
-		-->
-		 
-		
+		<!--  
 		<property name="connection.url">
 			jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_xiaoyuanjiaolian
 		</property>  
+		-->
+		<!-- 
 		<property name="connection.username">xwlmwx1m1j</property>
-		<property name="connection.password">0j1424iix2z2023l31x513i254xhllk5w33x1w5w</property>
-  		
-  		<!-- 
+		<property name="connection.password">0j1424iix2z2023l31x513i254xhllk5w33x1w5w</property>  --> 
+  		<!--  
 		<property name="connection.username">yanjiasen4</property>
 		<property name="connection.password">asdffdsa</property>
 		-->
+		<property name="connection.username">root</property>
+		<property name="connection.password">asdffdsa</property>
 
 		<!-- JDBC connection pool (use the built-in) -->
 		<!-- <property name="connection.pool_size">1</property>-->

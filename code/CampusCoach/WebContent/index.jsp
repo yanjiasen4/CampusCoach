@@ -36,6 +36,7 @@
             	<% if(request.getSession().getAttribute("user") == null) {
             	%>
 			    <li role="presentation"><a href="login.jsp">登录</a></li>
+			    <li role="presentation"><a href="register.jsp">注册</a></li>
 			    <%  
 			    } 
             	else {
@@ -44,7 +45,6 @@
 			    <li role="presentation"><a href="showusercourses">${sessionScope.user}</a></li>
 			    <li role="presentation"><a href="logout.action">注销</a></li>
 			    <%  } %>
-				<li role="presentation"><a href="register.jsp">注册</a></li>
 				</ul>
 		</div>
 	</nav>
@@ -55,7 +55,7 @@
         <p>你身边的运动达人</p>
       </div>
     </div>
-	
+    
 	<div class="header">
 	  <h2>开始选择你需要的培训班吧！</h2>
 	</div>
@@ -73,7 +73,7 @@
 			</div>
 			
 			<s:iterator value="courses" var="course">
-				<div class="col-sm-12 col-md-6 col-lg-4 " id="<s:property value="#course.sportsName"/>">
+				<div class="col-sm-12 col-md-6 col-lg-4" id="<s:property value="#course.sportsName"/>">
 					<div class="box">
 						<div class="iconpic">
 							<img src="img/1.jpg" width="150px" height="150px">
@@ -102,13 +102,14 @@
 			</s:iterator>
 			
 			<div class="col-sm-12 col-md-12 col-lg-12" id="conment">
+			
 				<div id="disqus_thread" class="disqus_div"></div>
 				<script type="text/javascript">
     		/* * * CONFIGURATION VARIABLES * * */
    			var disqus_shortname = 'campuscoach';
    			var disqus_identifier = '<s:property value='#course.id'/>';
    				
-    
+    		
     		/* * * DON'T EDIT BELOW THIS LINE * * */
     		(function() {
         		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

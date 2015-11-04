@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html>
+<html lang="zh-CN">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,48 +32,71 @@
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<ul class="nav nav-pills">
-            	<% if(request.getSession().getAttribute("user") == null) {
+            	
+			    <% if(request.getSession().getAttribute("user") == null) {
             	%>
-			    <li role="presentation"><a href="login.jsp">登录</a></li>
+			    <li role="presentation" class="active"><a href="login.jsp">登录</a></li>
 			    <li role="presentation"><a href="register.jsp">注册</a></li>
 			    <%  
 			    } 
             	else {
 			    %>
 			    <li role="presentation"><a class="nav-brand" href="showusercourses.action" style="padding:0px"><img width="50px" alt="校园教练" src="${sessionScope.avatar}"></a></li>
-			    <li role="presentation"><a href="showusercourses">${sessionScope.user}</a></li>
+			    <li role="presentation"><a href="showusercourses.action">${sessionScope.user}</a></li>
 			    <li role="presentation"><a href="logout.action">注销</a></li>
 			    <%  } %>
-				</ul>
+			</ul>
 		</div>
 	</nav>
 	
 	<div class="header">
-	  <h2>请填写你的个人信息</h2>
+	  <h1>排行榜</h1>
+
+	  
 	</div>
 	
-	<div class="container">
-		<form class="form-course" action="becomecoach" method="post">
-			<label for="inputType" class="sr-only">擅长运动</label>
-			<input type="text" name="coach.sportsName" id="inputType" class="form-control" placeholder="培训种类" data-toggle="popover" data-trigger="focus" data-placement="top" title="培训种类" 
-			data-content="请输入您要教学的运动" required autofocus>
-			<label for="inputType" class="sr-only">真实姓名</label>
-			<input type="text" name="coach.realname" id="inputAddress" class="form-control" placeholder="真实姓名" data-toggle="popover" data-trigger="focus" data-placement="top" title="真实姓名" 
-			data-content="请输入您的真实姓名" required autofocus>
-			<label for="inputType" class="sr-only">联系电话</label>
-			<input type="text" name="coach.phoneNumber" id="inputPrice" class="form-control" placeholder="联系电话" data-toggle="popover" data-trigger="focus" data-placement="top" title="联系电话" 
-			data-content="请输入常用的联系电话" required autofocus pattern="[0-9]{11}">
-			<label for="inputRemark" class="sr-only">详情介绍</label>
-			<textarea id="inputRemark" name="coach.introduction" class="form-control" placeholder="详情介绍" data-toggle="popover" data-trigger="focus" data-placement="top" title="详情介绍" 
-			data-content="详细介绍一下您的教学或运动经历吧！" required autofocus></textarea>
-			<input class="btn btn-lg btn-primary btn-block" type="submit"></button>
-		</form>
+	<div class="container-fluid user-inform">
+	<div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="rank-content">
+      	<s:iterator value="learners" var="it" status="st">
+      		<s:if test="#st.Odd">
+        		<div class="rank-list-left">
+          			<h2>
+          			<span class="rank"><s:property value="#it.rank"/></span>
+	         		<span class="ct"><s:property value="#it.username"/></span>
+	          		</h2>
+        		</div>
+	        </s:if>
+	        <s:if test="#st.Even">
+	        	<div class="rank-list-right">
+	          		<h2>
+	          		<span class="rank"><s:property value="#it.rank"/></span>
+	         		<span class="ct"><s:property value="#it.username"/></span>
+	          		</h2>
+	        	</div>
+	        </s:if>
+       	</s:iterator>
+      
+      	<div class="col-sm-12 col-md-12 col-lg-12"> 
+      	<nav>
+  		<ul class="pager">
+  		<s:if test="%{page.currentPage!=0}">
+    		<li class="previous"><a href="showusersrank?currpage=<s:property value="%{page.currentPage-1}"/>"><span aria-hidden="true">&larr;</span>上一页</a></li>
+    	</s:if>
+    	<s:if test="%{page.currentPage<(page.allPage-1)}">
+    		<li class="next"><a href="showusersrank?currpage=<s:property value="%{page.currentPage+1}"/>">下一页<span aria-hidden="true">&rarr;</span></a></li>
+    	</s:if>
+  		</ul>
+		</nav>	
+		
+		</div>
+      
+      </div>
 	</div>
-	
-	<div class="container content">
-		<h3>注意事项</h3>
 	</div>
-	
+	</div>
+
 	<nav class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
         <div class="navbar-header">
@@ -90,12 +113,8 @@
             <li><a href="create-res.jsp">发布预约</a></li>
             <li><a href="showcoach.action">发现教练</a></li>
             <li><a href="showreservation.action">查看预约</a></li>
-			<%if(request.getSession().getAttribute("coachID") == null){ %>
 			<li><a href="becomecoach.jsp">成为教练</a></li>
-			<%}
-            else {%>
             <li><a href="coachform.jsp">创建课程</a></li>
-            <%} %>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -105,10 +124,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 	
-	<!-- Use popver -->
+	<!-- Use tooltip -->
 	<script>
 	$(function () {
-		$('[data-toggle="popover"]').popover()
+		$('[data-toggle="tooltip"]').tooltip()
 	})
 	</script>
 	</body>

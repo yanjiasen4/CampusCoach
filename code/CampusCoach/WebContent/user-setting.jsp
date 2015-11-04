@@ -16,10 +16,6 @@
 
     <!-- Custom styles -->
     <link href="style/css/style.css" rel="stylesheet">
-    <link href="style/css/normalize.css" rel="stylesheet">
-    <link href="style/css/default.css" rel="stylesheet">
-  <!--<link href="style/css/normalize.css" rel="stylesheet">
-    <link href="style/css/default.css" rel="stylesheet">-->  
     <link href="style/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />	
 	
 	<script src="style/js/jquery-2.1.1.min.js"></script>
@@ -40,6 +36,7 @@
             	<% if(request.getSession().getAttribute("user") == null) {
             	%>
 			    <li role="presentation"><a href="login.jsp">登录</a></li>
+			    <li role="presentation"><a href="register.jsp">注册</a></li>
 			    <%  
 			    } 
             	else {
@@ -48,7 +45,6 @@
 			    <li role="presentation" class="active"><a href="showusercourses">${sessionScope.user}</a></li>
 			    <li role="presentation"><a href="logout.action">注销</a></li>
 			    <%  } %>
-				<li role="presentation"><a href="register.jsp">注册</a></li>
 				</ul>
 		</div>
 	</nav>
@@ -119,8 +115,8 @@
             <form enctype="multipart/form-data" action="uploadavatar" method="post">
                 <input id="file-0a" class="file" type="file" name="file" data-min-file-count="1">
                 <br>
-                <button type="submit" class="btn btn-primary" name="提交">Submit</button>
-                <button type="reset" class="btn btn-default" name="重置">Reset</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-default">Reset</button>
             </form>
         </div>   
       	

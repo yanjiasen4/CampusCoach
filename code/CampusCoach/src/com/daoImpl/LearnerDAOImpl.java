@@ -19,7 +19,7 @@ public class LearnerDAOImpl extends BaseHibernateImpl implements LearnerDAO{
 		Session session = getSession();
 		Transaction ts = session.beginTransaction();
 		try {
-			String hql = "from Learner";
+			String hql = "from Learner order by score";
 			Query query = session.createQuery(hql);
 			List<Learner> list = (List<Learner>)query.list();
 			ts.commit();
@@ -152,6 +152,53 @@ public class LearnerDAOImpl extends BaseHibernateImpl implements LearnerDAO{
 			HibernateSessionFactory.closeSession();
 		}
 		return null;
+	}
+	
+	// 查询指定位置的记录
+	@SuppressWarnings("unchecked")
+	public List<Learner> queryLearnerByPage(int offset, int length) {
+		Session session = getSession();
+		Transaction ts = session.beginTransaction();
+		try {
+			String hql = "from Learner order by score";
+			Query query = session.createQuery(hql);
+			query.setFirstResult(offset);
+			query.setMaxResults(length);
+			List<Learner> list = (List<Learner>)query.list();
+			ts.commit();
+			return list;			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			if(ts != null){
+				ts.rollback();
+			}	
+		}
+		finally {
+			HibernateSessionFactory.closeSession();
+		}
+		return null;
+	}
+
+	public int getAllRows() {
+		Session session = getSession();
+		Transaction ts = session.beginTransaction();
+		try {
+			String hql = "select count(*) from Learner";
+			Query query = session.createQuery(hql);
+			ts.commit();
+			return ((Long) (query.uniqueResult())).intValue();	
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			if(ts != null){
+				ts.rollback();
+			}	
+		}
+		finally {
+			HibernateSessionFactory.closeSession();
+		}
+		return 0;
 	}
 
 }

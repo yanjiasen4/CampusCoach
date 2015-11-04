@@ -125,7 +125,11 @@
 			<result name="error">info/failed.html</result>
 			<interceptor-ref name="coachcheck"/>
 		</action>	
-
+		<action name="showusersrank" class="showUsersRankAction">
+			<result name="input">/</result>
+			<result name="success">/rank.jsp</result>
+			<result name="error">info/failed.html</result>
+		</action>
 		<action name="dropcourse" class="dropCourseAction">
 			<result name="input">/</result>
 			<result name="success">/jump/jumpcenter.jsp?success=1</result>

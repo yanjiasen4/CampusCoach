@@ -35,6 +35,7 @@
             	<% if(request.getSession().getAttribute("user") == null) {
             	%>
 			    <li role="presentation"><a href="login.jsp">登录</a></li>
+			    <li role="presentation"><a href="register.jsp">注册</a></li>
 			    <%  
 			    } 
             	else {
@@ -43,7 +44,6 @@
 			    <li role="presentation"><a href="showusercourses.action">${sessionScope.user}</a></li>
 			    <li role="presentation"><a href="logout.action">注销</a></li>
 			    <%  } %>
-				<li role="presentation" class="active"><a href="register.jsp">注册</a></li>
 				</ul>
 		</div>
 	</nav>
