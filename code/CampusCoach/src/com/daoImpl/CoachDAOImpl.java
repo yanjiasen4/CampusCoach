@@ -7,7 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.entity.Coach;
-import com.entity.Learner;
 import com.dao.CoachDAO;
 import com.hibernateTool.BaseHibernateImpl;
 import com.hibernateTool.HibernateSessionFactory;
@@ -238,24 +237,4 @@ public class CoachDAOImpl extends BaseHibernateImpl implements CoachDAO{
 		return null;
 		
 	}
-	
-	public Boolean setCoach(Coach coach) {
-		Session session = getSession();
-		Transaction ts = session.beginTransaction();
-		try {
-			session.update(coach);
-			ts.commit();
-			return true;
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			if(ts != null)
-				ts.rollback();
-		}
-		finally {
-			HibernateSessionFactory.closeSession();
-		}		
-		return false;	
-	}
-
 }

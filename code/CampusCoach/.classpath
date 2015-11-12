@@ -40,6 +40,5 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-core-2.2.1.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-spring-plugin-2.2.1.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xwork-core-2.2.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/czh/Desktop/暑期大作业/SAE官方jar包/sae-local-1.1.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

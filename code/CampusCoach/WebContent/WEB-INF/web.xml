@@ -81,11 +81,12 @@
     	<welcome-file>index.html</welcome-file>
   	</welcome-file-list>
   	
-  	  
+  	
+  	<!-- 
   	<listener>
     <listener-class>  
          com.company.listener.SaeListener  
     </listener-class>
   	</listener>
-  	
+     -->
 </web-app>

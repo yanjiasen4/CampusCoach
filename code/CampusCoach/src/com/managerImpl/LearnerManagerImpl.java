@@ -2,9 +2,7 @@ package com.managerImpl;
 
 import java.util.List;
 
-import com.dao.CoachDAO;
 import com.dao.LearnerDAO;
-import com.entity.Coach;
 import com.entity.Learner;
 import com.entity.Page;
 import com.manager.LearnerManager;
@@ -12,15 +10,6 @@ import com.manager.LearnerManager;
 public class LearnerManagerImpl implements LearnerManager{
 	
 	private LearnerDAO learnerDao;
-	private CoachDAO coachDao;
-
-	public CoachDAO getCoachDao() {
-		return coachDao;
-	}
-
-	public void setCoachDao(CoachDAO coachDao) {
-		this.coachDao = coachDao;
-	}
 
 	public LearnerDAO getLearnerDao() {
 		return learnerDao;
@@ -100,11 +89,6 @@ public class LearnerManagerImpl implements LearnerManager{
 	public void updateAvatar(int learnerID, String fileFileName) {
 		Learner learner = learnerDao.getLearnerByLearnerID(learnerID);
 		learner.setAvatar(fileFileName);
-		if (learner.getIsCoach() == 1){
-			Coach ch = coachDao.getCoachByLearnerID(learner.getLearnerID());
-			ch.setAvatar(fileFileName);
-			coachDao.setCoach(ch);
-		}
 		learnerDao.setLearner(learner);
 	}
 
@@ -122,13 +106,32 @@ public class LearnerManagerImpl implements LearnerManager{
 	}
 
 	public List<Learner> getAllLearners() {
-		// TODO Auto-generated method stub
-		return null;
+		return learnerDao.getLearners();
 	}
 
 	public Page getRankPage(int pageSize, int page) {
-		// TODO Auto-generated method stub
-		return null;
+		int offset = page*pageSize;
+		int length = pageSize;
+		int allRow = learnerDao.getAllRows();
+		System.out.println("!");
+		System.out.println(allRow);
+		int allPage = Page.countTotalPage(pageSize, allRow);
+		System.out.println(allPage);
+		final int currentPage = Page.countCurrentPage(page);
+		List<Learner> list = learnerDao.queryLearnerByPage(offset, length);
+		int i = 0;
+		for(Learner tmp:list) {
+			tmp.setRank(currentPage*pageSize+i-1);
+			i++;
+		}
+		Page pg = new Page();
+		pg.setPageSize(pageSize);
+		pg.setCurrentPage(currentPage);
+		pg.setAllRow(allRow);
+		pg.setAllPage(allPage);
+		pg.setList(list);
+		pg.init();
+		return pg;	
 	}
 
 }
