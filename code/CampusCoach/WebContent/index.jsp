@@ -163,7 +163,7 @@
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
   			<span aria-hidden="true">x</span>
 		</button>
-		请前往个人中心完善信息！
+		为了能及时联系到您，请前往<a href = "user-setting.jsp">个人中心</a>完善信息！
 	</div>
 	<%if(request.getParameter("login")!=null){%>
 	<div class="positionfix alert alert-success" id="login" role="alert">

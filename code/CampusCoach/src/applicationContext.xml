@@ -84,6 +84,7 @@
 	</bean>
 	<bean id="learnerManager" class="com.managerImpl.LearnerManagerImpl">
 		<property name="learnerDao" ref="learnerDao"></property>
+		<property name="coachDao" ref="coachDao"></property>
 	</bean>
 	<bean id="reservationManager" class="com.managerImpl.ReservationManagerImpl">
 		<property name="reservationDao" ref="reservationDao"></property>
