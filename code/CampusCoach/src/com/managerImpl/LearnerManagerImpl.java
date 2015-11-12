@@ -1,9 +1,12 @@
 package com.managerImpl;
 
+import java.util.List;
+
 import com.dao.CoachDAO;
 import com.dao.LearnerDAO;
 import com.entity.Coach;
 import com.entity.Learner;
+import com.entity.Page;
 import com.manager.LearnerManager;
 
 public class LearnerManagerImpl implements LearnerManager{
@@ -116,6 +119,16 @@ public class LearnerManagerImpl implements LearnerManager{
 		else {
 			return false;
 		}
+	}
+
+	public List<Learner> getAllLearners() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Page getRankPage(int pageSize, int page) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
