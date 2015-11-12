@@ -56,7 +56,7 @@
     </div>
 	
 	<div class="header">
-	  <h2>开始选择你需要的教练/培训班吧！</h2>
+	  <h2>教练都在这里啦！</h2>
 	</div>
 	
 	
@@ -92,7 +92,6 @@
 			</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-					<button type="button" class="btn btn-primary" value="<s:property value="#course.courseID"/>" onclick="order(this)">报名</button>
 				</div>
 			</div>
 		</div>
